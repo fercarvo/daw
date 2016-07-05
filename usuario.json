@@ -1,0 +1,5 @@
+"user":[
+    {"firstName":"John", "lastName":"Doe", "bloodType": "", "cedula":"", "phone": "", "description": "", "type": "1"},
+    {"firstName":"Edgar", "lastName":"Carvajal", "bloodType": "A", "cedula":"0701010101", "phone": "2220806", "description": "paciente GYE", "type": "1"},
+	{"firstName":"Pit", "lastName":"Li", "bloodType": "Z", "cedula":"", "phone": "", "description": "", "type": "2"}
+]
