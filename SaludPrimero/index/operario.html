@@ -37,11 +37,11 @@
 <section class="registrar">
 <div>
 <form class="registrar-examen">
-<input type="text" placeholder="usuario"/>
-<input type="text" placeholder="centro-medico">
-<input type="text" placeholder="laboratorio">
-<input type="text" placeholder="muestra">
-<button>entrar</button>
+<input type="text" id="usuario"/>
+<input type="text" id="centro-medico">
+<input type="text" id="laboratorio">
+<input type="text" id="muestra">
+<input type="submit" value="Enviar">
 </form>
 </div>
 </section>
@@ -55,11 +55,42 @@
 
    </div>
 </section>
-      <script>
+   <script>
       function myFunction() {
           document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
       }
    </script>
+   <script type="text/javascript" charset="utf-8">
+      $(document).ready(function(){
+
+            var socket = io.connect('localhost:3000');
+
+
+            $('#fregistrar-examen').submit(function() {
+            var usuario = $('#usuario').val();
+            var centroMedico = $('#centro-medico').val();
+            var laboratorio = $('#laboratorio').val();
+            var muestra = $('#muestra').val();
+
+            var examen = {
+               nombre: '',
+               paciente: usuario,
+               centro: centroMedico,
+               laboratorio: laboratorio,
+               muestra: muestra,
+               resultado: ''
+            };
+
+            socket.emit('nuevo examen', examen);
+
+
+            });
+            return false;
+            
+      });
+   </script>
+   <script src="/socket.io/socket.io.js"></script>
+   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 </body>
 
 </body>
